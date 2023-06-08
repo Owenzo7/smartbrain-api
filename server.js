@@ -5,6 +5,8 @@ const cors = require("cors");
 const knex = require("knex");
 const bcrypt = require("bcrypt-nodejs");
 
+
+// database knex connection
 const db = knex({
   client: "pg",
   connection: {
@@ -16,6 +18,7 @@ const db = knex({
   },
 });
 
+// initialize express server
 const app = express();
 
 app.use(bodyParser.json());
