@@ -32,6 +32,9 @@ app.get("/", (req, res) => {
   res.send("success");
 });
 
+
+// I've put some snippets of the code in the controllers folder
+
 app.post("/signin", (req, res) => {
   signIn.handleSignin(req, res, db, bcrypt);
 });
