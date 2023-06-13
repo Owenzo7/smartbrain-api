@@ -1,21 +1,31 @@
 const path = require("path");
 
 module.exports = {
+  mode: "production", // or 'development'
   entry: {
     app: "./src/server.js",
-    image: "./src/controllers/image.js",
-    profile: "./src/controllers/profile.js",
-    register: "./src/controllers/register.js",
-    signin: "./src/controllers/signin.js",
   },
-
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
   },
-};
-
-module.exports = {
-  mode: "production", // or 'production'
-  // rest of the webpack configuration
+  resolve: {
+    fallback: {
+      timers: require.resolve("timers-browserify"),
+      tty: require.resolve("tty-browserify"),
+      url: require.resolve("url/"),
+      util: require.resolve("util/"),
+      path: require.resolve("path-browserify"),
+      stream: require.resolve("stream-browserify"),
+      buffer: require.resolve("buffer/"),
+      fs: false,
+      assert: require.resolve("assert/"),
+      querystring: require.resolve("querystring-es3"),
+      crypto: require.resolve("crypto-browserify"),
+      zlib: require.resolve("browserify-zlib"),
+      http: require.resolve("stream-http"),
+      net: require.resolve("net-browserify"),
+      async_hooks: require.resolve("async_hooks"),
+    },
+  },
 };
