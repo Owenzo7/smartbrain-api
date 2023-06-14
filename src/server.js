@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use(
   cors({
     origin: "https://smartbrain-app-cnpa.onrender.com",
-    methods: ["GET", "POST", "PUT", "DELETE"]
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
