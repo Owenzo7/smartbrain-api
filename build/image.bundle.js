@@ -1,1 +1,0 @@
-(()=>{var e={71715:e=>{e.exports={handleImage:(e,r,t)=>{const{id:n}=e.body;t("users").where("id","=",n).increment("entries",1).returning("entries").then((e=>{r.json(e[0].entries)})).catch((e=>r.status(400).json("unable to get entries")))}}}},r={};!function t(n){var s=r[n];if(void 0!==s)return s.exports;var o=r[n]={exports:{}};return e[n](o,o.exports,t),o.exports}(71715)})();
