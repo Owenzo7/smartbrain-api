@@ -14,8 +14,9 @@ const image = require("../controllers/image");
 const db = knex({
   client: "pg",
   connection: {
-    connectionString: "postgres://smartbrain_db_lt1h_user:WO6lvoey2T6TeTUUQ9yRk0cpzS9NoXvC@dpg-ci45sdiip7vptq67u7ng-a.oregon-postgres.render.com/smartbrain_db_lt1h",
-    ssl: {rejectUnauthorized: false},
+    connectionString:
+      "postgres://smartbrain_db_lt1h_user:WO6lvoey2T6TeTUUQ9yRk0cpzS9NoXvC@dpg-ci45sdiip7vptq67u7ng-a.oregon-postgres.render.com/smartbrain_db_lt1h",
+    ssl: { rejectUnauthorized: false },
     host: "dpg-ci45sdiip7vptq67u7ng-a",
     port: 5432,
     user: "smartbrain_db_lt1h_user",
@@ -28,12 +29,18 @@ const db = knex({
 const app = express();
 
 app.use(bodyParser.json());
-app.use(cors());
+
+// Always specify the frontend origin
+app.use(
+  cors({
+    origin: "https://smartbrain-app-cnpa.onrender.com",
+    methods: ["GET", "POST", "PUT", "DELETE"]
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("success");
 });
-
 
 // I've put some snippets of the code in the controllers folder
 // Need to finish this by tommorow
