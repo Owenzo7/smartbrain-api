@@ -33,7 +33,7 @@ app.use(bodyParser.json());
 // Always specify the frontend origin
 app.use(
   cors({
-    origin: "https://smartbrain-api-lsdl.onrender.com",
+    origin: "https://smartbrain-app-cnpa.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
